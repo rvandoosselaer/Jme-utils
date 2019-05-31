@@ -1,0 +1,35 @@
+plugins {
+    id 'java-library'
+    id 'idea'
+}
+
+ext {
+    jmeVersion = "[3.2,)"
+    lombokVersion = "[1.18,)"
+    slf4jVersion = "[1.8,)"
+    lemurVersion = "[1.12,)"
+    commonsTextVersion = "[1.6,)"
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    // JME
+    implementation "org.jmonkeyengine:jme3-core:${jmeVersion}"
+    implementation "org.jmonkeyengine:jme3-desktop:${jmeVersion}"
+    implementation "org.jmonkeyengine:jme3-lwjgl:${jmeVersion}"
+
+    // GUI
+    implementation "com.simsilica:lemur:${lemurVersion}"
+
+    // utilities
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    implementation "org.apache.commons:commons-text:${commonsTextVersion}"
+
+    // logging
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    implementation "org.slf4j:jul-to-slf4j:${slf4jVersion}"
+}
