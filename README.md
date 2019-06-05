@@ -39,6 +39,11 @@ To get an overview of all gradle tasks use:
 $ ./gradlew tasks
 ```
 
+## Contributing
+If you have a bug or an idea, browse the open issues before opening a new one.
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
 ## License
 This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details
 
