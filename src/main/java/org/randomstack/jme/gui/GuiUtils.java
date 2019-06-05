@@ -11,7 +11,7 @@ import org.randomstack.jme.ApplicationGlobals;
  * @author remy
  */
 @Slf4j
-public class GuiHelper {
+public class GuiUtils {
 
     /**
      * Set the location of the panel to the center (horizontal and vertical) of the screen
