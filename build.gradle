@@ -41,6 +41,20 @@ dependencies {
     implementation "org.slf4j:jul-to-slf4j:${slf4jVersion}"
 }
 
+// copy the generated javadocs into the /docs folder for the github pages
+task copyJavadoc(dependsOn: javadoc) {
+    doLast {
+        copy {
+            from "$buildDir/docs"
+            into "$projectDir/docs"
+        }
+    }
+}
+
+build {
+    dependsOn copyJavadoc
+}
+
 task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
     archiveClassifier = 'sources'
