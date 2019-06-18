@@ -11,14 +11,14 @@ The library is available on [bintray](https://dl.bintray.com/randomstack/RandomS
 
 Gradle snippet:
 ```gradle
-compile 'org.randomstack:jmeconverter:0.1.0'
+compile 'org.randomstack:jme3-utils:0.1.0'
 ```
 
 Maven snippet:
 ```xml
 <dependency>
   <groupId>org.randomstack</groupId>
-  <artifactId>jmeconverter</artifactId>
+  <artifactId>jme3-utils</artifactId>
   <version>0.1.0</version>
 </dependency>
 ```
