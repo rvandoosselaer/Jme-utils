@@ -21,16 +21,37 @@ public class Vector3i implements Serializable, Cloneable {
     @EqualsAndHashCode.Include
     public int z;
 
+    /**
+     * Set the values of the current vector.
+     *
+     * @param x value
+     * @param y value
+     * @param z value
+     */
     public void set(int x, int y, int z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
+    /**
+     * Adds the provided values to this vector, storing the result in a new vector. The new vector is returned.
+     *
+     * @param x value to add
+     * @param y value to add
+     * @param z value to add
+     * @return the resultant vector
+     */
     public Vector3i add(int x, int y, int z) {
         return new Vector3i(this.x + x, this.y + y, this.z + z);
     }
 
+    /**
+     * Adds the provided vector to this vector, storing the result in a new vector. The new vector is returned.
+     *
+     * @param vec vector to add
+     * @return the resultant vector
+     */
     public Vector3i add(Vector3i vec) {
         if (vec == null) {
             log.warn("Supplied vector is null, returning null.");
@@ -40,6 +61,14 @@ public class Vector3i implements Serializable, Cloneable {
         return new Vector3i(this.x + vec.x, this.y + vec.y, this.z + vec.z);
     }
 
+    /**
+     * Adds the provided values to this vector internally and returns a handle to this vector.
+     *
+     * @param x value to add
+     * @param y value to add
+     * @param z value to add
+     * @return this
+     */
     public Vector3i addLocal(int x, int y, int z) {
         this.x += x;
         this.y += y;
@@ -47,6 +76,12 @@ public class Vector3i implements Serializable, Cloneable {
         return this;
     }
 
+    /**
+     * Adds the provided vector to this vector internally and returns a handle to this vector.
+     *
+     * @param vec vector to add
+     * @return this
+     */
     public Vector3i addLocal(Vector3i vec) {
         if (vec == null) {
             log.warn("Supplied vector is null, returning null.");
