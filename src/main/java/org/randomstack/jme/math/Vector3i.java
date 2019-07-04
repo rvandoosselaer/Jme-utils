@@ -11,9 +11,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Vector3i implements Serializable, Cloneable {
 
-    private int x;
-    private int y;
-    private int z;
+    public int x;
+    public int y;
+    public int z;
 
     public void set(int x, int y, int z) {
         this.x = x;
