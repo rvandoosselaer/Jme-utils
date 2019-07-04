@@ -48,6 +48,11 @@ public class Vector3i implements Serializable, Cloneable {
     }
 
     public Vector3i addLocal(Vector3i vec) {
+        if (vec == null) {
+            log.warn("Supplied vector is null, returning null.");
+            return null;
+        }
+
         this.x += vec.x;
         this.y += vec.y;
         this.z += vec.z;

@@ -25,5 +25,8 @@ public class Vector3iTest {
         result = v.add(new Vector3i(3, 2, 4));
         Assertions.assertEquals(new Vector3i(1, 1, 1), v);
         Assertions.assertEquals(new Vector3i(4, 3, 5), result);
+
+        Assertions.assertNull(new Vector3i().add(null));
+        Assertions.assertNull(new Vector3i().addLocal(null));
     }
 }
