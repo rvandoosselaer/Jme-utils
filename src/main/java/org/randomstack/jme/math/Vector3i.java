@@ -40,7 +40,7 @@ public class Vector3i implements Serializable, Cloneable {
      * @param x value to add
      * @param y value to add
      * @param z value to add
-     * @return the resultant vector
+     * @return the result vector
      */
     public Vector3i add(int x, int y, int z) {
         return new Vector3i(this.x + x, this.y + y, this.z + z);
@@ -50,7 +50,7 @@ public class Vector3i implements Serializable, Cloneable {
      * Adds the provided vector to this vector, storing the result in a new vector. The new vector is returned.
      *
      * @param vec vector to add
-     * @return the resultant vector
+     * @return the result vector
      */
     public Vector3i add(Vector3i vec) {
         if (vec == null) {
@@ -91,6 +91,88 @@ public class Vector3i implements Serializable, Cloneable {
         this.x += vec.x;
         this.y += vec.y;
         this.z += vec.z;
+        return this;
+    }
+
+    /**
+     * Multiplies the provided values with this vector, storing the result in a new vector. The new vector is returned.
+     *
+     * @param x value to multiply
+     * @param y value to multiply
+     * @param z value to multiply
+     * @return the result vector
+     */
+    public Vector3i mult(int x, int y, int z) {
+        return new Vector3i(this.x * x, this.y * y, this.z * z);
+    }
+
+    /**
+     * Multiply the provided vector with this vector, storing the result in a new vector. The new vector is returned.
+     *
+     * @param vec vector to multiply
+     * @return the result vector
+     */
+    public Vector3i mult(Vector3i vec) {
+        if (vec == null) {
+            log.warn("Supplied vector is null, returning null.");
+            return null;
+        }
+        return new Vector3i(this.x * vec.x, this.y * vec.y, this.z * vec.z);
+    }
+
+    /**
+     * Multiply the provided value with this vector, storing the result in a new vector. The new vector is returned.
+     *
+     * @param value to multiply
+     * @return the result vector
+     */
+    public Vector3i mult(int value) {
+        return new Vector3i(this.x * value, this.y * value, this.z * value);
+    }
+
+    /**
+     * Multiplies the provided values with this vector internally and returns a handle to this vector.
+     *
+     * @param x value to multiply
+     * @param y value to multiply
+     * @param z value to multiply
+     * @return this
+     */
+    public Vector3i multLocal(int x, int y, int z) {
+        this.x *= x;
+        this.y *= y;
+        this.z *= z;
+        return this;
+    }
+
+    /**
+     * Multiply the provided vector with this vector internally and returns a handle to this vector.
+     *
+     * @param vec vector to multiply
+     * @return this
+     */
+    public Vector3i multLocal(Vector3i vec) {
+        if (vec == null) {
+            log.warn("Supplied vector is null, returning null.");
+            return null;
+        }
+
+        this.x *= vec.x;
+        this.y *= vec.y;
+        this.z *= vec.z;
+        return this;
+    }
+
+    /**
+     * Multiply the provided value with this vector internally and returns a handle to this vector.
+     *
+     * @param value to multiply
+     * @return this
+     */
+    public Vector3i multLocal(int value) {
+        this.x *= value;
+        this.y *= value;
+        this.z *= value;
         return this;
     }
 
