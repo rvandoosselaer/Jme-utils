@@ -1,5 +1,6 @@
 package org.randomstack.jme.math;
 
+import com.jme3.math.Vector3f;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -174,6 +175,15 @@ public class Vector3i implements Serializable, Cloneable {
         this.y *= value;
         this.z *= value;
         return this;
+    }
+
+    /**
+     * Return the vector as a new Vector3f object.
+     *
+     * @return vector3f
+     */
+    public Vector3f toVector3f() {
+        return new Vector3f((float) x, (float) y, (float) z);
     }
 
     @Override
