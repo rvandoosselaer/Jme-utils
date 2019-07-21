@@ -46,13 +46,6 @@ dependencies {
     implementation "org.slf4j:slf4j-api:${slf4jVersion}"
     implementation "org.slf4j:jul-to-slf4j:${slf4jVersion}"
 
-    compile "org.slf4j:slf4j-api:${slf4jVersion}"
-    compile "org.apache.logging.log4j:log4j-core:${log4j2Version}"
-    compile "org.apache.logging.log4j:log4j-api:${log4j2Version}"
-    compile "org.apache.logging.log4j:log4j-slf4j18-impl:${log4j2Version}"
-    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${jacksonVersion}"
-    compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
-
     // testing
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
