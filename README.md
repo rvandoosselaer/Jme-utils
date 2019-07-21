@@ -11,7 +11,7 @@ The library is available on [bintray](https://dl.bintray.com/randomstack/RandomS
 
 Gradle snippet:
 ```gradle
-compile 'org.randomstack:jme3-utils:0.1.0'
+compile 'org.randomstack:jme3-utils:0.2.0'
 ```
 
 Maven snippet:
@@ -19,7 +19,7 @@ Maven snippet:
 <dependency>
   <groupId>org.randomstack</groupId>
   <artifactId>jme3-utils</artifactId>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
 </dependency>
 ```
 
