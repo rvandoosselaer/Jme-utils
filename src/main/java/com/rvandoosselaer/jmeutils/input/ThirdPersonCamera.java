@@ -122,8 +122,8 @@ public class ThirdPersonCamera extends BaseAppState implements AnalogFunctionLis
             }
         } else if (func == FUNCTION_Y_ROTATE && (dragging || !dragToRotate)) {
             // try to scale the input value, when you make a sudden mouse movement, the value can become very high
-            value = value > 0 ? Math.min(value, maximumRotationSpeed) : Math.max(value, -maximumRotationSpeed);
-            pitch += -value * tpf * rotationSpeed;
+            double normalizedValue = value > 0 ? Math.min(value, maximumRotationSpeed) : Math.max(value, -maximumRotationSpeed);
+            pitch += -normalizedValue * tpf * rotationSpeed;
             if (pitch < minPitch) {
                 pitch = minPitch;
             }
