@@ -1,7 +1,7 @@
 # ![jme-utils](icon-64.png) jme-utils
 A utility library for jMonkeyEngine
 
-[![Build Status](https://travis-ci.com/randomstack/Jme3-utils.svg?branch=master)](https://travis-ci.com/randomstack/Jme3-utils)
+[![Build Status](https://travis-ci.com/rvandoosselaer/jme-utils.svg?branch=master)](https://travis-ci.com/rvandoosselaer/jme-utils)
 
 ## Documentation
 General documentation can be found on the [wiki](https://github.com/rvandoosselaer/jme-utils/wiki). The javadoc can be found at the [gh-pages.](https://rvandoosselaer.github.io/jme-utils/1.0.0-SNAPSHOT/javadoc/index.html)
