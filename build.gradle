@@ -4,8 +4,8 @@ plugins {
     id 'maven-publish'
 }
 
-group = "org.randomstack"
-version = "0.2.0"
+group = "com.rvandoosselaer"
+version = "1.0.0-SNAPSHOT"
 
 sourceCompatibility = 1.8
 
@@ -22,10 +22,6 @@ ext {
 
 repositories {
     jcenter()
-}
-
-configurations {
-    compile.transitive = false
 }
 
 dependencies {
@@ -49,6 +45,10 @@ dependencies {
     // testing
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+}
+
+test {
+    useJUnitPlatform()
 }
 
 // copy the generated javadocs into the /docs folder for the github pages
