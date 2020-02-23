@@ -2,11 +2,8 @@ package com.rvandoosselaer.jmeutils;
 
 import com.jme3.app.SimpleApplication;
 import com.jme3.app.state.AppState;
+import com.rvandoosselaer.jmeutils.util.LogUtils;
 import com.simsilica.lemur.GuiGlobals;
-import org.slf4j.bridge.SLF4JBridgeHandler;
-
-import java.util.logging.Level;
-import java.util.logging.LogManager;
 
 /**
  *  An abstract class that can be used as a starting point for a JME application. This implementation handles some
@@ -28,7 +25,7 @@ public abstract class JmeLauncher extends SimpleApplication {
     public JmeLauncher(AppState... initialStates) {
         super(initialStates);
 
-        configureLogging();
+        LogUtils.forwardJULToSlf4j();
 
         setSettings(ApplicationSettingsFactory.getAppSettings());
         setPauseOnLostFocus(false);
@@ -48,11 +45,5 @@ public abstract class JmeLauncher extends SimpleApplication {
     }
 
     public abstract void init();
-
-    private static void configureLogging() {
-        LogManager.getLogManager().getLogger("").setLevel(Level.ALL);
-        SLF4JBridgeHandler.removeHandlersForRootLogger();
-        SLF4JBridgeHandler.install();
-    }
 
 }
