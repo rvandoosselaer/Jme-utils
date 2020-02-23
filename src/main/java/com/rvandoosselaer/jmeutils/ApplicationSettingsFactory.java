@@ -35,7 +35,7 @@ public class ApplicationSettingsFactory {
     private static final boolean FULLSCREEN_DEFAULT = false;
 
     public static AppSettings getAppSettings() {
-        log.info("Loading application settings");
+        log.info("Loading application settings ...");
         log.debug("Supported resolutions: {}", ResolutionHelper.getSupportedResolutions());
 
         GraphicsDevice graphicsDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
