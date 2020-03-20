@@ -2,6 +2,8 @@ package com.rvandoosselaer.jmeutils.gui;
 
 import com.jme3.app.Application;
 import com.jme3.cursors.plugins.JmeCursor;
+import com.jme3.math.FastMath;
+import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.rvandoosselaer.jmeutils.ApplicationGlobals;
 import com.simsilica.lemur.Panel;
@@ -12,6 +14,20 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class GuiUtils {
+
+    /**
+     * Updates the location of the panel if the panel goes outside the screen boundaries. This can be useful if you want
+     * to make sure that draggable panels can't be dragged outside the screen.
+     *
+     * @param panel the panel to check
+     */
+    public static void clampBoundaries(Panel panel) {
+        Vector3f location = new Vector3f(panel.getLocalTranslation());
+        location.setX(FastMath.clamp(location.x, 0, getWidth() - panel.getPreferredSize().x));
+        location.setY(FastMath.clamp(location.y, panel.getPreferredSize().y, getHeight()));
+
+        panel.setLocalTranslation(location);
+    }
 
     /**
      * Set the location of the panel to the center (horizontal and vertical) of the screen
