@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":9,"i2":9,"i3":9};
+var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -182,16 +182,23 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clampBoundaries(com.simsilica.lemur.Panel)">clampBoundaries</a></span>&#8203;(com.simsilica.lemur.Panel&nbsp;panel)</code></th>
+<td class="colLast">
+<div class="block">Updates the location of the panel if the panel goes outside the screen boundaries.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHeight()">getHeight</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getWidth()">getWidth</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMouseCursor(java.lang.String)">setMouseCursor</a></span>&#8203;(java.lang.String&nbsp;image)</code></th>
 <td class="colLast">
@@ -241,6 +248,21 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="clampBoundaries(com.simsilica.lemur.Panel)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clampBoundaries</h4>
+<pre class="methodSignature">public static&nbsp;void&nbsp;clampBoundaries&#8203;(com.simsilica.lemur.Panel&nbsp;panel)</pre>
+<div class="block">Updates the location of the panel if the panel goes outside the screen boundaries. This can be useful if you want
+ to make sure that draggable panels can't be dragged outside the screen.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>panel</code> - the panel to check</dd>
+</dl>
+</li>
+</ul>
 <a id="center(com.simsilica.lemur.Panel)">
 <!--   -->
 </a>
