@@ -1,7 +1,8 @@
 plugins {
-    id 'java-library'
     id 'idea'
+    id 'java-library'
     id 'maven-publish'
+    id 'com.jfrog.bintray' version "1.8.4"
 }
 
 group = "com.rvandoosselaer"
@@ -81,7 +82,26 @@ publishing {
             from components.java
             artifact sourcesJar
             artifact javadocJar
-            artifactId 'jme-utils'
+        }
+    }
+}
+
+javadoc {
+    failOnError = false
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_APIKEY')
+    publications = ['MyPublication']
+    pkg {
+        repo = 'rvandoosselaer'
+        name = rootProject.getName()
+        licenses = ['BSD 3-Clause']
+        vcsUrl = 'https://github.com/rvandoosselaer/Jme-utils.git'
+        version {
+            name = '1.0.0-SNAPSHOT'
+            released = new Date()
         }
     }
 }
