@@ -25,6 +25,10 @@ dependencies {
 ## Documentation
 General documentation can be found on the [wiki](https://github.com/rvandoosselaer/jme-utils/wiki). The javadoc can be found at the [gh-pages.](https://rvandoosselaer.github.io/jme-utils/1.0.0-SNAPSHOT/javadoc/index.html)
 
+## Contributing
+
+If you have a bug or an idea, you can create a ticket for it [here.](https://github.com/rvandoosselaer/Jme-utils/issues)
+
 ## License
 This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details
 
