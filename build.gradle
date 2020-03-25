@@ -19,6 +19,7 @@ ext {
     log4j2Version = "[2.11,)"
     jacksonVersion = "[2.9,)"
     junitVersion = "[5.4.0,)"
+    groovyVersion = "[3.0,)"
 }
 
 repositories {
@@ -46,6 +47,7 @@ dependencies {
     // testing
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    testRuntimeOnly "org.codehaus.groovy:groovy-all:${groovyVersion}"
 }
 
 test {
