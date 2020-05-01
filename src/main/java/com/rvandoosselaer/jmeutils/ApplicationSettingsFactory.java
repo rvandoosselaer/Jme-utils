@@ -25,6 +25,7 @@ public class ApplicationSettingsFactory {
     public static final String RENDERER = "renderer";
     public static final String RESOLUTION = "resolution";
     public static final String FULLSCREEN = "fullscreen";
+    public static final String FREQUENCY = "frequency";
 
     private static final boolean VSYNC_DEFAULT = true;
     private static final boolean GAMMA_CORRECTION_DEFAULT = true;
@@ -44,7 +45,7 @@ public class ApplicationSettingsFactory {
         ApplicationProperties props = ApplicationProperties.getInstance();
 
         AppSettings settings = new AppSettings(true);
-        settings.setFrequency(displayMode.getRefreshRate());
+        settings.setFrequency(props.get(FREQUENCY, displayMode.getRefreshRate()));
         settings.setTitle(getTitle());
         settings.setGammaCorrection(props.get(GAMMA_CORRECTION, GAMMA_CORRECTION_DEFAULT));
         settings.setFrameRate(props.get(FRAMERATE, FRAMERATE_DEFAULT));
