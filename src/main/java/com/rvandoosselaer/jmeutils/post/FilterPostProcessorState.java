@@ -37,6 +37,8 @@ public class FilterPostProcessorState extends BaseAppState {
             log.trace("Setting samples to {} on {}", samples, fpp);
             fpp.setNumSamples(samples);
         }
+
+        app.getViewPort().addProcessor(fpp);
     }
 
     @Override
