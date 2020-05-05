@@ -40,7 +40,7 @@ public class ApplicationSettingsFactory {
         settings.setTitle(props.get(TITLE, JmeVersion.FULL_NAME));
         settings.setGammaCorrection(props.get(GAMMA_CORRECTION, true));
         settings.setFrameRate(props.get(FRAMERATE, -1));
-        settings.setVSync(props.get(VSYNC, true));
+        settings.setVSync(props.get(VSYNC, false));
         settings.setSamples(props.get(ANTI_ALIASING, 0));
         settings.setRenderer(props.get(RENDERER, AppSettings.LWJGL_OPENGL2));
         settings.setFullscreen(props.get(FULLSCREEN, false));
