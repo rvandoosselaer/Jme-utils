@@ -111,13 +111,19 @@ public class FilterPostProcessorState extends BaseAppState {
             return;
         }
 
+        boolean shouldLog = false;
         StringBuilder sb = new StringBuilder("Removing filters:");
-        for (int i = filters.size() - 1; i == 0; i--) {
+        for (int i = filters.size() - 1; i >= 0; i--) {
             Filter filter = filters.get(i);
-            fpp.removeFilter(filter);
-            sb.append("\n").append(i).append(". ").append(StringUtils.isEmpty(filter.getName()) ? filter : filter.getName());
+            if (fpp.getFilterList().contains(filter)) {
+                fpp.removeFilter(filter);
+                sb.append("\n").append(i).append(". ").append(StringUtils.isEmpty(filter.getName()) ? filter : filter.getName());
+                shouldLog = true;
+            }
         }
-        log.debug(sb.toString());
+        if (shouldLog) {
+            log.debug(sb.toString());
+        }
     }
 
     private int getSamples() {
