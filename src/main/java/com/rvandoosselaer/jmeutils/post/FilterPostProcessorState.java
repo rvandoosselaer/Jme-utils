@@ -93,6 +93,10 @@ public class FilterPostProcessorState extends BaseAppState {
     }
 
     private void attachFilters() {
+        if (filters.isEmpty()) {
+            return;
+        }
+
         StringBuilder sb = new StringBuilder("Attaching filters:");
         for (int i = 0; i < filters.size(); i++) {
             Filter filter = filters.get(i);
@@ -103,8 +107,17 @@ public class FilterPostProcessorState extends BaseAppState {
     }
 
     private void detachFilters() {
-        log.debug("Removing filters: {}", fpp.getFilterList());
-        fpp.removeAllFilters();
+        if (filters.isEmpty()) {
+            return;
+        }
+
+        StringBuilder sb = new StringBuilder("Removing filters:");
+        for (int i = filters.size() - 1; i == 0; i--) {
+            Filter filter = filters.get(i);
+            fpp.removeFilter(filter);
+            sb.append("\n").append(i).append(". ").append(StringUtils.isEmpty(filter.getName()) ? filter : filter.getName());
+        }
+        log.debug(sb.toString());
     }
 
     private int getSamples() {
