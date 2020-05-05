@@ -26,14 +26,7 @@ public class ApplicationSettingsFactory {
     public static final String RESOLUTION = "resolution";
     public static final String FULLSCREEN = "fullscreen";
     public static final String FREQUENCY = "frequency";
-
-    private static final boolean VSYNC_DEFAULT = true;
-    private static final boolean GAMMA_CORRECTION_DEFAULT = true;
-    private static final int FRAMERATE_DEFAULT = 60;
-    private static final int ANTI_ALIASING_DEFAULT = 0;
-    private static final String RENDERER_DEFAULT = AppSettings.LWJGL_OPENGL2;
-    private static final String RESOLUTION_DEFAULT = ResolutionHelper.getFirstHDResolution().toString();
-    private static final boolean FULLSCREEN_DEFAULT = false;
+    public static final String RESIZABLE = "resizable";
 
     public static AppSettings getAppSettings() {
         log.info("Loading application settings ...");
@@ -47,14 +40,15 @@ public class ApplicationSettingsFactory {
         AppSettings settings = new AppSettings(true);
         settings.setFrequency(props.get(FREQUENCY, displayMode.getRefreshRate()));
         settings.setTitle(getTitle());
-        settings.setGammaCorrection(props.get(GAMMA_CORRECTION, GAMMA_CORRECTION_DEFAULT));
-        settings.setFrameRate(props.get(FRAMERATE, FRAMERATE_DEFAULT));
-        settings.setVSync(props.get(VSYNC, VSYNC_DEFAULT));
-        settings.setSamples(props.get(ANTI_ALIASING, ANTI_ALIASING_DEFAULT));
-        settings.setRenderer(props.get(RENDERER, RENDERER_DEFAULT));
-        settings.setFullscreen(props.get(FULLSCREEN, FULLSCREEN_DEFAULT));
+        settings.setGammaCorrection(props.get(GAMMA_CORRECTION, true));
+        settings.setFrameRate(props.get(FRAMERATE, -1));
+        settings.setVSync(props.get(VSYNC, true));
+        settings.setSamples(props.get(ANTI_ALIASING, 0));
+        settings.setRenderer(props.get(RENDERER, AppSettings.LWJGL_OPENGL2));
+        settings.setFullscreen(props.get(FULLSCREEN, false));
+        settings.setResizable(props.get(RESIZABLE, false));
 
-        Resolution resolution = Resolution.fromString(props.get(RESOLUTION, RESOLUTION_DEFAULT));
+        Resolution resolution = Resolution.fromString(props.get(RESOLUTION, ResolutionHelper.getFirstHDResolution().toString()));
         settings.setWidth(resolution.getWidth());
         settings.setHeight(resolution.getHeight());
         settings.setBitsPerPixel(resolution.getBpp());
