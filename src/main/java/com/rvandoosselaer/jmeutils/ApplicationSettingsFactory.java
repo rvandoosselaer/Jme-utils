@@ -1,6 +1,7 @@
 package com.rvandoosselaer.jmeutils;
 
 import com.jme3.system.AppSettings;
+import com.jme3.system.JmeVersion;
 import lombok.extern.slf4j.Slf4j;
 
 import java.awt.*;
@@ -14,9 +15,6 @@ import java.awt.*;
 @Slf4j
 public class ApplicationSettingsFactory {
 
-    public static final String NAME = "name";
-    public static final String VERSION = "version";
-    public static final String BUILD = "build";
     public static final String TITLE = "title";
     public static final String VSYNC = "vsync";
     public static final String GAMMA_CORRECTION = "gammaCorrection";
@@ -39,7 +37,7 @@ public class ApplicationSettingsFactory {
 
         AppSettings settings = new AppSettings(true);
         settings.setFrequency(props.get(FREQUENCY, displayMode.getRefreshRate()));
-        settings.setTitle(getTitle());
+        settings.setTitle(props.get(TITLE, JmeVersion.FULL_NAME));
         settings.setGammaCorrection(props.get(GAMMA_CORRECTION, true));
         settings.setFrameRate(props.get(FRAMERATE, -1));
         settings.setVSync(props.get(VSYNC, true));
@@ -55,25 +53,6 @@ public class ApplicationSettingsFactory {
 
         log.debug("Settings: {}", settings);
         return settings;
-    }
-
-    /**
-     * The title is either the 'title' field in the application.properties file, or a concatenation of the name,
-     * version and build
-     *
-     * @return the title
-     */
-    private static String getTitle() {
-        ApplicationProperties props = ApplicationProperties.getInstance();
-
-        String title = props.get(TITLE, "");
-        if (title.isEmpty()) {
-            String name = props.get(NAME, "Jme3-utils");
-            String version = props.get(VERSION, "0.1");
-            String build = props.get(BUILD, "");
-            title = build.isEmpty() ? name + " - " + version : name + " - " + version + " build " + build;
-        }
-        return title;
     }
 
 }
