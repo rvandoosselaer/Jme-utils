@@ -149,7 +149,7 @@ public class ImageUtils {
         // we only need to loop through half of the image. otherwise we would be putting the swapped pixels back.
         for (int w = 0; w < width; w++) {
             for (int h = 0; h < height * 0.5; h++) {
-                // swap the pixels the opposite y pixels
+                // swap the opposite y pixels
                 int pixel = image.getRGB(w, h);
                 int oppositePixel = image.getRGB(w, (height - 1) - h);
 
