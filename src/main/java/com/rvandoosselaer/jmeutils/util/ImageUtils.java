@@ -146,12 +146,15 @@ public class ImageUtils {
         int width = image.getWidth();
         int height = image.getHeight();
 
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                // get the pixel color on the opposite y side
-                int newRGBA = image.getRGB(x, (height - 1) - y);
+        // we only need to loop through half of the image. otherwise we would be putting the swapped pixels back.
+        for (int w = 0; w < width; w++) {
+            for (int h = 0; h < height * 0.5; h++) {
+                // swap the pixels the opposite y pixels
+                int pixel = image.getRGB(w, h);
+                int oppositePixel = image.getRGB(w, (height - 1) - h);
 
-                image.setRGB(x, y, newRGBA);
+                image.setRGB(w, h, oppositePixel);
+                image.setRGB(w, (height - 1) - h, pixel);
             }
         }
 
