@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -114,7 +115,7 @@ public class ImageUtils {
         log.debug("Converting {} image to {}", image.getFormat(), Image.Format.ARGB8);
 
         ByteBuffer bb = image.getData(0);
-        bb.clear();
+        clearBuffer(bb);
 
         int bufferedImageFormat = alpha ? BufferedImage.TYPE_INT_ARGB : BufferedImage.TYPE_INT_RGB;
         BufferedImage bufferedImage = new BufferedImage(image.getWidth(), image.getHeight(), bufferedImageFormat);
@@ -175,6 +176,13 @@ public class ImageUtils {
                 }
             }
         }
+    }
+
+    private static void clearBuffer(Buffer buffer) {
+        // Since JDK 9, ByteBuffer class overrides some methods and their return type in the Buffer class. To
+        // ensure compatibility with JDK 8, calling the 'clear' method forces using the
+        // JDK 8 Buffer's methods signature, and avoids explicit casts.
+        buffer.clear();
     }
 
 }
