@@ -19,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
@@ -199,7 +200,7 @@ public class ScreenshotState implements AppState {
             Image image = new Image(format, width, height, imageBuffer, ColorSpace.Linear);
             if (processFunction != null) {
                 processFunction.apply(image);
-                imageBuffer.rewind();
+                rewindBuffer(imageBuffer);
             }
 
             String filename = createFilename();
@@ -226,6 +227,13 @@ public class ScreenshotState implements AppState {
 
         private ByteBuffer createImageBuffer(int width, int height, Image.Format imageFormat) {
             return BufferUtils.createByteBuffer(width * height * (int) Math.ceil(imageFormat.getBitsPerPixel() / 8.0));
+        }
+
+        private void rewindBuffer(Buffer buffer) {
+            // Since JDK 9, ByteBuffer class overrides some methods and their return type in the Buffer class. To
+            // ensure compatibility with JDK 8, calling the 'rewindBuffer' method forces using the
+            // JDK 8 Buffer's methods signature, and avoids explicit casts.
+            buffer.rewind();
         }
 
     }
